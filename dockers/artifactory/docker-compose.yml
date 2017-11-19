@@ -22,7 +22,7 @@ services:
   #   volumes:
   #    - "${ARTIFACTORY_COMPOSE_BASE}/${NGINX_HOST_DATA}:/var/opt/jfrog/nginx"
   #   environment:
-  #    - ART_BASE_URL=http://e8hub.com:8081/artifactory
+  #    - ART_BASE_URL=http://jinhub.com:8081/artifactory
   #    - SSL=true
   #    - RUNTIME_OPTS="-Xms1g -Xmx2g"
   #   restart: always

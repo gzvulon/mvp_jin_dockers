@@ -1,5 +1,5 @@
 FROM fedora:23
-# FROM docker.e8hub/fedora:23
+# FROM docker.jinhub/fedora:23
 
 RUN dnf update -y && dnf clean all
 RUN dnf makecache fast
@@ -27,7 +27,7 @@ RUN groupadd -g ${gid} ${group} \
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 RUN chown -R jenkins:jenkins /var/jenkins_home
 
-# # E8 build groups
+# # JIN build groups
 # RUN /usr/sbin/usermod -a -G mock ${user} \
 # 	&& /usr/sbin/usermod -a -G wheel ${user} \
 # 	&& /usr/sbin/usermod -a -G docker ${user}
@@ -39,8 +39,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-openjdk
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
 
-# jin e8auto settings
-ENV JIN_USERNAME e8auto
+# jin jinauto settings
+ENV JIN_USERNAME jinauto
 ENV JIN_PASSWORD e8autopass
 # user definition moved to e8-base-dev
 

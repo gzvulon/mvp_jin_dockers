@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  mvp-jenkins-master:
+    image: mvp-jenkins-master
+    ports:
+      - "${HOST_JNLP}:50000"
+      - "${HOST_HTTP}:8080"
+    volumes:
+      - "${HOST_JENKINS_HOME}:/os_mapping:rw"
+    environment:
+      # passwordless installation
+      # (CORE-5166:CPU load fix): -Dgroovy.use.classvalue=true
+      JAVA_OPTS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false -Dgroovy.use.classvalue=true"
+      JENKINS_HOME_ON_HOST: "${HOST_JENKINS_HOME}"

@@ -23,7 +23,7 @@ RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
   && echo "skip sha checking" #"${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha1sum -c -
 
 ENV JENKINS_UC https://updates.jenkins.io
-# ENV JENKINS_UC http://e8hub/artifactory/jenkins-remote
+# ENV JENKINS_UC http://jinhub/artifactory/jenkins-remote
 RUN chown -R "$JENKINS_USER" "$JENKINS_HOME" /usr/share/jenkins/ref
 
 # for main web interface:
