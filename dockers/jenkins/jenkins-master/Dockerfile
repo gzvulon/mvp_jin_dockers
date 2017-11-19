@@ -1,4 +1,4 @@
-FROM jenkins-base
+FROM jenkins-base:dev
 
 # `/usr/share/jenkins/ref/` contains all reference configuration we want
 # to set on a fresh new installation. Use it to bundle additional plugins
@@ -22,8 +22,8 @@ ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-w
 RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
   && echo "skip sha checking" #"${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha1sum -c -
 
-ENV JENKINS_UC https://updates.jenkins.io
-# ENV JENKINS_UC http://jinhub/artifactory/jenkins-remote
+# ENV JENKINS_UC https://updates.jenkins.io
+ENV JENKINS_UC http://jinhub:8081/artifactory/jenkins-remote-download
 RUN chown -R "$JENKINS_USER" "$JENKINS_HOME" /usr/share/jenkins/ref
 
 # for main web interface:

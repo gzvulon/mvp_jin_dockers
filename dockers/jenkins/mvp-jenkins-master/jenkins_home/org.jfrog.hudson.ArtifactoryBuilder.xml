@@ -3,15 +3,15 @@
   <useCredentialsPlugin>false</useCredentialsPlugin>
   <artifactoryServers>
     <org.jfrog.hudson.ArtifactoryServer>
-      <url>http://artifactory.local-jin.com/artifactory</url>
-      <id>e8hub</id>
+      <url>http://jinhub/artifactory</url>
+      <id>jinhub</id>
       <timeout>300</timeout>
       <bypassProxy>false</bypassProxy>
       <connectionRetry>3</connectionRetry>
       <deployerCredentialsConfig>
         <credentials>
           <username>jinauto</username>
-          <password>ZThhdXRvcGFzcw==</password>
+          <password>*******</password>
         </credentials>
         <credentialsId></credentialsId>
         <overridingCredentials>false</overridingCredentials>

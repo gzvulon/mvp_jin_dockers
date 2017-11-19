@@ -6,7 +6,7 @@
       <retriever class="org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever">
         <scm class="jenkins.plugins.git.GitSCMSource" plugin="git@3.0.5">
           <id>f2421c18-c5b0-43d6-adc4-8b86e21d5081</id>
-          <remote>git@github.com:gzvulon/jin_mvp.git</remote>
+          <remote>https://github.com/gzvulon/mvp_jin_sys_jobs.git</remote>
           <credentialsId></credentialsId>
           <includes>*</includes>
           <excludes></excludes>

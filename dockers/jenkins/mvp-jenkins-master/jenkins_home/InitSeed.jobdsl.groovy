@@ -1,4 +1,4 @@
-def jenkins_jobs_url = "git@github.com:ivan/jin_mvp"
+def jenkins_jobs_url = "https://github.com/gzvulon/mvp_jin_sys_jobs.git"
 def dsl_dir = 'ci/jobdsl/seed'
 def dsl_pattern = '*.groovy'
 

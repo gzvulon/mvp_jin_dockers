@@ -1,14 +1,13 @@
 FROM fedora:23
 # FROM docker.jinhub/fedora:23
 
-RUN dnf update -y && dnf clean all
-RUN dnf makecache fast
-RUN dnf install -y python2 python2-dnf libselinux-python ansible \
-	glib2-devel zlibrary zlib-devel \
-	sudo tar gzip unzip xz which sshpass htop iputils \
-	docker redhat-rpm-config python-pip
+RUN dnf install -y python2 python2-dnf python-pip libselinux-python \
+	sudo tar gzip unzip xz which sshpass iputils \
+	ansible
 
-# { taken from jenkins docker to support build in docker
+# RUN dnf update -y && dnf clean all
+# RUN dnf makecache fast
+
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
@@ -41,8 +40,7 @@ ENV JENKINS_SLAVE_AGENT_PORT 50000
 
 # jin jinauto settings
 ENV JIN_USERNAME jinauto
-ENV JIN_PASSWORD e8autopass
-# user definition moved to e8-base-dev
+ENV JIN_PASSWORD jinauto!pass
 
 # Create the folders and volume mount points
 RUN mkdir -p /var/log/jenkins
@@ -57,3 +55,7 @@ RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION
   && echo "$TINI_SHA  /bin/tini" | sha1sum -c -
 
 COPY resolv.conf /etc/resolv.conf
+
+RUN dnf install -y glib2-devel zlibrary zlib-devel 
+RUN dnf install -y docker redhat-rpm-config
+RUN dnf install -y wget curl git

@@ -60,7 +60,7 @@ private void configureMarkup() {
 private void configureSystemMessage() {
     Jenkins.getInstance().setSystemMessage('''
 <center> 
-    <a href="https://github.com/E8-Storage/jin_mvp">JIN_MVP</a> &nbsp
+    <a href="https://github.com/gzvulon/mvp_jin_sys_jobs">JIN_MVP</a> &nbsp
 </center>''')
 }
 

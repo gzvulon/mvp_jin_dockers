@@ -1,15 +1,20 @@
 version: '2.1'
 
 services:
-  mvp-jenkins-master:
-    image: mvp-jenkins-master
+  jenkins:
+    image: mvp-jenkins-master:dev
+    network_mode: bridge
+    container_name: jenkins
     ports:
       - "${HOST_JNLP}:50000"
       - "${HOST_HTTP}:8080"
-    volumes:
-      - "${HOST_JENKINS_HOME}:/os_mapping:rw"
+    # volumes:
+    #   - "${HOST_JENKINS_HOME}:/var/jenkins_home:rw"
     environment:
       # passwordless installation
-      # (CORE-5166:CPU load fix): -Dgroovy.use.classvalue=true
+      # (CPU load fix): -Dgroovy.use.classvalue=true
       JAVA_OPTS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false -Dgroovy.use.classvalue=true"
       JENKINS_HOME_ON_HOST: "${HOST_JENKINS_HOME}"
+
+    external_links:
+      - artifactory

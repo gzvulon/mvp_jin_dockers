@@ -4,6 +4,7 @@ services:
   artifactory:
     image: "docker.bintray.io/jfrog/artifactory-${ARTIFACTORY_LICENSE}:${ARTIFACTORY_VERSION}"
     container_name: artifactory
+    network_mode: bridge
     ports:
      - 8081:8081
     volumes:
@@ -26,3 +27,8 @@ services:
   #    - SSL=true
   #    - RUNTIME_OPTS="-Xms1g -Xmx2g"
   #   restart: always
+
+networks:
+  default:
+    external:
+      name: bridge
